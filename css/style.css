@@ -6,9 +6,38 @@
 
 body {
   margin: 0;
+  font-size: 1rem;
   font-family: 'Kumbh Sans', sans-serif;
-  background-image: url(../images/bg-pattern-top.svg);
+  background:hsl(185, 75%, 39%);
 }
+
+body::before {
+  content: '';
+  position: absolute;
+  background-image: url(../images/bg-pattern-top.svg);
+  background-repeat: no-repeat;
+  width: 100%;
+  top: -350px;
+  bottom: 400px;
+  left: -200px;
+  right: 0;
+  transform: rotate(160deg);
+  z-index: 0; 
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  background-image: url(../images/bg-pattern-bottom.svg);
+  background-repeat: no-repeat;
+  width: 100%;
+  top: 340px;
+  bottom: 0;
+  left: 170px;
+  z-index: -1;  
+}
+
+
 
 h2,
 p {
@@ -16,20 +45,99 @@ p {
 }
 
 img {
-  width: 40%;
+  position: relative;
+  width: 7em;
   display: block;
   border-radius: 50%;
-  margin: 4em auto 2em;
+  margin: 4em auto 1em;
+  border: 8px solid #fff;
 }
 
 .card {
-  background-image: url(../images/bg-pattern-card.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center; 
+  background: #fff;
   width: 90%;
   margin: 5em auto;
   border-radius: 1em;
-  padding: 2em;
+  padding: 2em 0 .5em;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  background-image: url(../images/bg-pattern-card.svg);
+  width: 90%;
+  height: 23%;
+  top: 80px;
+  bottom: 0;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+  
+.info {
+  text-align: center;
+  display: flex;
+  justify-content: center;  
+}
+
+.age {
+  padding-left: .5em;
+  font-weight: 100;
+}
+
+.home {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.number {
+  margin-bottom: .5em;
+  text-align: center;
+}
+
+.ft-info {
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.footer-section {
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px solid gray;
+  margin-top: 3em;
+  padding: 2.5em 0;
+}
+
+@media(min-width: 600px) {
+  .card {
+    max-width: 400px;
+  }
+
+  .card::before {
+    width: 400px;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    background-image: url(../images/bg-pattern-top.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    top: -550px;
+    bottom: 40px;
+    left: -350px;
+    z-index: -1; 
+  }
+  
+  body::after {
+    content: '';
+    position: absolute;
+    background-image: url(../images/bg-pattern-bottom.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    top: 440px;
+    bottom: 0;
+    left: 550px;
+    z-index: -1;  
+  }
+
 }
